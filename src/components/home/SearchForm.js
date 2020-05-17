@@ -11,7 +11,7 @@ const SearchForm = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     props.fetchMovies(props.text);
-    console.log(props.movies.Search);
+    console.log(props.movies);
   };
 
   return (

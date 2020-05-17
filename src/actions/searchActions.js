@@ -16,7 +16,7 @@ export const fetchMovies = (text) => (dispatch) => {
     .then((response) =>
       dispatch({
         type: FETCH_MOVIES,
-        payload: response.data,
+        payload: response.data.Search,
       })
     )
     .catch((err) => console.log(err));
