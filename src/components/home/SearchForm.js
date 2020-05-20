@@ -1,7 +1,11 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { searchMovie, fetchMovies } from "../../actions/searchActions";
+import {
+  searchMovie,
+  fetchMovies,
+  setLoading,
+} from "../../actions/searchActions";
 
 const SearchForm = (props) => {
   const onChange = (e) => {
@@ -11,7 +15,8 @@ const SearchForm = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     props.fetchMovies(props.text);
-    console.log(props.movies);
+    props.setLoading();
+    // console.log(props.movies);
   };
 
   return (
@@ -41,6 +46,8 @@ const mapStateToProps = (state) => ({
   movies: state.movies.movies,
 });
 
-export default connect(mapStateToProps, { searchMovie, fetchMovies })(
-  SearchForm
-);
+export default connect(mapStateToProps, {
+  searchMovie,
+  fetchMovies,
+  setLoading,
+})(SearchForm);
